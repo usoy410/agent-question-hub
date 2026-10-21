@@ -82,6 +82,12 @@ ln -s "$PWD/agent-question-hub/skills/setup-agent-council" ~/.claude/skills/setu
 
 Then restart your agent and run `/setup-agent-council`, or ask it to "set up the agent council".
 
+**Recommended: make the automatic start reliable.** Agents often keep retrying instead of noticing they're stuck. Add this line to your project's `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`. Agents read these files every session, so the rule carries more weight than the skill description alone:
+
+```markdown
+If you've failed at the same problem twice, or face a hard-to-reverse decision (architecture, data model, vendor, public API), use the agent-council skill before trying again.
+```
+
 **Requirements:** `bash`, `jq`, and at least one agent CLI. `timeout` is optional: on macOS, `brew install coreutils` provides `gtimeout`.
 
 ## Supported agents
